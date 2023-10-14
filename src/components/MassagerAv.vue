@@ -27,7 +27,7 @@
             </div>
             <div class="mb-lg-0 mb-3 me-3">
                 <label for="">End Time</label>
-                <input type="time" class="form-control" v-model="selectedEndTime" disabled/>
+                <input type="" class="form-control" v-model="selectedEndTime" disabled/>
             </div>
             <div class="text-center mb-lg-0 mb-3">
                 <button class="btn btn-primary" @click="addOrder()">Order</button>

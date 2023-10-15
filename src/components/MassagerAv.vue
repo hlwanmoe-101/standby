@@ -102,7 +102,33 @@ function isTimeDisabled(time) {
             }
         }
       }
-
+      function isTimeFree(time) {
+        getMassagerJob()
+        const selectedTime = new Date(`2000-01-01T${time}`);
+        const start=ref([])
+        const end=ref([])
+        if(massagerJob.value.length>0){
+            start.value=massagerJob.value.map((el)=>el.startTime)
+            end.value=massagerJob.value.map((el)=>el.endTime)
+            for(let i=0;i<start.value.length;i++){
+                const sTime = new Date(`2000-01-01T${start.value[i]}`);
+                const eTime = new Date(`2000-01-01T${end.value[i]}`);
+                const sTime2 = new Date(`2000-01-01T${start.value[i+1]}`);
+                if(selectedTime>= sTime && selectedTime<= eTime){
+                    return true
+                
+                }else if(selectedTime>eTime && selectedTime<sTime2){
+                    const intervalTime=sTime2-eTime;
+                    const resultTime=intervalTime/3600000;
+                    console.log(resultTime)
+                    if(resultTime<1){
+                        return true
+                    }
+                }
+               
+            }
+        }
+      }
       
 function checkStartTime(){
     
@@ -126,7 +152,9 @@ function checkEndTime(){
 }
 
 async function addOrder(){
-    const { data } = await supabase
+    const isFree=isTimeFree(selectedStartTime.value)
+    if(!isFree){
+        const { data } = await supabase
       .from('job')
       .insert([
         {
@@ -143,17 +171,32 @@ async function addOrder(){
       selectedEndTime.value=null
       selectedTypeOfM.value=null
       section.value=null
-      showAlert()
+      showSuccessAlert()
       main()
+    }else{
+        selectedStartTime.value=null
+      selectedEndTime.value=null
+      selectedTypeOfM.value=null
+      section.value=null
+      showErrorAlert()
+      main()
+    }
+    
 }
 
 const swal = inject('$swal')
 
-async function showAlert() {
+async function showSuccessAlert() {
     swal({
         icon: 'success',
         title: 'Thanks For Your Order',
         text: 'If your not confirm, your order will be cancel withing 30 minuts!'})
+}
+async function showErrorAlert() {
+    swal({
+        icon: 'error',
+        title: 'Sorry For Your Order',
+        text: 'Please Try Agin!'})
 }
 
 function main(){
@@ -171,6 +214,7 @@ async function getMassagerJob() {
     .select().gte('created_at',currentDate).eq('mid',props['mid']).order('startTime',{ascending: true})
     massagerJob.value=data
   }
+  
 
   onMounted(() => {
   getMassagerJob()

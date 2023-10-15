@@ -161,7 +161,7 @@ function isTimeDisabled(time) {
         }
       }
 
-      resolve(true); // If the selected time is free
+      resolve(false); // If the selected time is free
     } catch (error) {
       reject(error); // Handle any errors that occur during the asynchronous operations
     }
@@ -191,7 +191,7 @@ function checkEndTime(){
 
 async function addOrder(){
     const isFree=isTimeFree(selectedStartTime.value)
-    if(!isFree){
+    if(isFree){
         const { data } = await supabase
       .from('job')
       .insert([

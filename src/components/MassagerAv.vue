@@ -102,71 +102,34 @@ function isTimeDisabled(time) {
             }
         }
       }
-    //   function isTimeFree(time) {
-    //     getMassagerJob()
-    //     const selectedTime = new Date(`2000-01-01T${time}`);
-    //     const start=ref([])
-    //     const end=ref([])
-    //     if(massagerJob.value.length>0){
-    //         start.value=massagerJob.value.map((el)=>el.startTime)
-    //         end.value=massagerJob.value.map((el)=>el.endTime)
-    //         for(let i=0;i<start.value.length;i++){
-    //             const sTime = new Date(`2000-01-01T${start.value[i]}`);
-    //             const eTime = new Date(`2000-01-01T${end.value[i]}`);
-    //             const sTime2 = new Date(`2000-01-01T${start.value[i+1]}`);
-    //             if(selectedTime>= sTime && selectedTime<= eTime){
-    //                 return true
+      function isTimeFree(time) {
+        getMassagerJob()
+        const selectedTime = new Date(`2000-01-01T${time}`);
+        const start=ref([])
+        const end=ref([])
+        if(massagerJob.value.length>0){
+            start.value=massagerJob.value.map((el)=>el.startTime)
+            end.value=massagerJob.value.map((el)=>el.endTime)
+            for(let i=0;i<start.value.length;i++){
+                const sTime = new Date(`2000-01-01T${start.value[i]}`);
+                const eTime = new Date(`2000-01-01T${end.value[i]}`);
+                const sTime2 = new Date(`2000-01-01T${start.value[i+1]}`);
+                if(selectedTime>= sTime && selectedTime<= eTime){
+                    return true
                 
-    //             }else if(selectedTime>eTime && selectedTime<sTime2){
-    //                 const intervalTime=sTime2-eTime;
-    //                 const resultTime=intervalTime/3600000;
-    //                 console.log(resultTime)
-    //                 if(resultTime<1){
-    //                     return true
-    //                 }
-    //             }
+                }else if(selectedTime>eTime && selectedTime<sTime2){
+                    const intervalTime=sTime2-eTime;
+                    const resultTime=intervalTime/3600000;
+                    console.log(resultTime)
+                    if(resultTime<1){
+                        return true
+                    }
+                }
                
-    //         }
-    //     }
-    //   }
-    function isTimeFree(time) {
-  return new Promise((resolve, reject) => {
-    try {
-      getMassagerJob(); // Assuming getMassagerJob is an asynchronous function
-
-      const selectedTime = new Date(`2000-01-01T${time}`);
-      
-
-      if (massagerJob.value.length > 0) {
-       const start = massagerJob.value.map((el) => el.startTime);
-       const end = massagerJob.value.map((el) => el.endTime);
-
-        for (let i = 0; i < start.length; i++) {
-          const sTime = new Date(`2000-01-01T${start[i]}`);
-          const eTime = new Date(`2000-01-01T${end[i]}`);
-          const sTime2 = new Date(`2000-01-01T${start[i + 1]}`);
-
-          if (selectedTime >= sTime && selectedTime <= eTime) {
-            resolve(true);
-            return;
-          } else if (selectedTime > eTime && selectedTime < sTime2) {
-            const intervalTime = sTime2 - eTime;
-            const resultTime = intervalTime / 3600000;
-
-            if (resultTime < 1) {
-              resolve(true);
-              return;
             }
-          }
         }
       }
-
-      resolve(false); // If the selected time is free
-    } catch (error) {
-      reject(error); // Handle any errors that occur during the asynchronous operations
-    }
-  },3000);
-}
+   
 
 function checkStartTime(){
     

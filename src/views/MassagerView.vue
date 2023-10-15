@@ -7,7 +7,7 @@ const mname=ref("")
 const mcode=ref()
 const mphone=ref()
 const massagers = ref([])
-const isEdit=true
+const isEdit=ref(true)
 const updateId=ref()
 
 async function getMassager() {

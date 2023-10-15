@@ -92,7 +92,9 @@ onMounted(() => {
                     <tbody>
                         <tr v-for="(massager,index) in massagers" :key="massager.id">
                             <td>{{ index+1 }}</td>
-                            <td class="text-primary" @click="repairMassager(massager.id)" >{{ massager.name }}</td>
+                            <td class="text-primary"  >
+                               <a href="#" @click="repairMassager(massager.id)">{{ massager.name }}</a> 
+                            </td>
                             <td>{{ massager.mcode }}</td>
                             <td>{{ massager.phone }}</td>
                             <td>

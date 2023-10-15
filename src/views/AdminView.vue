@@ -135,9 +135,9 @@ const printContent=(id)=> {
     printJob.value=allJobs.value.filter(el=>el.id==id)
     const type=ref()
     if(printJob.value[0].type){
-        type.value="Body"
-    }else{
         type.value="Foot"
+    }else{
+        type.value="Body"
     }
     const printWindow = window.open('', '', 'height=1000,width=1000')
     printWindow.document.write('<html><head><title>Print Page</title></head><body>');

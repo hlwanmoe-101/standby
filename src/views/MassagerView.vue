@@ -36,7 +36,7 @@ function repairMassager(id){
     mname.value=uMassager.name
     mcode.value=uMassager.mcode
     mphone.value=uMassager.phone
-    this.isEdit=false
+    isEdit.value=false
 }
 async function updateMassager() {
     const { data } = await supabase
@@ -44,7 +44,7 @@ async function updateMassager() {
     .update({ name: mname.value, mcode: mcode.value, phone: mphone.value})
     .eq('id', this.updateId)
     
-    this.isEdit=true
+    isEdit.value=true
 }
 async function deleteMassager(id)
 {

@@ -110,7 +110,7 @@ function checkStartTime(){
     section.value=null
 }
 function checkEndTime(){
-    const selectedTimeParts = this.selectedStartTime.split(':');
+    const selectedTimeParts = selectedStartTime.value.split(':');
       const hours = parseInt(selectedTimeParts[0], 10);
       const minutes = parseInt(selectedTimeParts[1], 10);
       const selectedDate = new Date(0, 0, 0, hours, minutes);

@@ -154,7 +154,7 @@ function checkEndTime(){
 
 async function addOrder(){
     const isFree=isTimeFree(selectedStartTime.value)
-    if(isFree){
+    if(!isFree){
         const { data } = await supabase
       .from('job')
       .insert([

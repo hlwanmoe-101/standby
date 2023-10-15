@@ -161,7 +161,7 @@ function isTimeDisabled(time) {
         }
       }
 
-      resolve(false); // If the selected time is free
+      resolve(true); // If the selected time is free
     } catch (error) {
       reject(error); // Handle any errors that occur during the asynchronous operations
     }

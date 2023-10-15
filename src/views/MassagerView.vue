@@ -42,7 +42,7 @@ async function updateMassager() {
     const { data } = await supabase
     .from('massager')
     .update({ name: mname.value, mcode: mcode.value, phone: mphone.value})
-    .eq('id', this.updateId)
+    .eq('id', updateId.value)
     
     isEdit.value=true
 }

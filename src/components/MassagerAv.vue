@@ -87,7 +87,7 @@ function isTimeDisabled(time) {
                 const sTime = new Date(`2000-01-01T${start.value[i]}`);
                 const eTime = new Date(`2000-01-01T${end.value[i]}`);
                 const sTime2 = new Date(`2000-01-01T${start.value[i+1]}`);
-                if(selectedTime>= sTime && selectedTime< eTime){
+                if(selectedTime>= sTime && selectedTime<= eTime){
                     return true
                 
                 }else if(selectedTime>eTime && selectedTime<sTime2){

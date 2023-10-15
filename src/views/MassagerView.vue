@@ -32,10 +32,10 @@ async function addMassager(){
 }
 function repairMassager(id){
     const uMassager = massagers.value.find(el => el.id === id);
-    this.updateId=id
-    this.mname=uMassager.name
-    this.mcode=uMassager.mcode
-    this.mphone=uMassager.phone
+    updateId.value=id
+    mname.value=uMassager.name
+    mcode.value=uMassager.mcode
+    mphone.value=uMassager.phone
     this.isEdit=false
 }
 async function updateMassager() {

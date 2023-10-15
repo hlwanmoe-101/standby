@@ -27,7 +27,7 @@
             </div>
             <div class="mb-lg-0 mb-3 me-3">
                 <label for="">End Time</label>
-                <input type="" class="form-control" v-model="selectedEndTime" disabled/>
+                <input type="time" class="form-control" v-model="selectedEndTime" disabled/>
             </div>
             <div class="text-center mb-lg-0 mb-3">
                 <button class="btn btn-primary" @click="addOrder()">Order</button>
@@ -110,7 +110,6 @@ function checkStartTime(){
     section.value=null
 }
 function checkEndTime(){
-    alert(aa)
     const selectedTimeParts = this.selectedStartTime.split(':');
       const hours = parseInt(selectedTimeParts[0], 10);
       const minutes = parseInt(selectedTimeParts[1], 10);

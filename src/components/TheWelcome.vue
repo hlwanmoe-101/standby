@@ -2,8 +2,11 @@
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-function guest(){
-  router.push({ name: 'guest' });
+function standBy(){
+  router.push({ name: 'standby' });
+}
+function duty(){
+  router.push({ name: 'duty' });
 }
 </script>
 
@@ -19,9 +22,13 @@ function guest(){
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                 <div class="d-flex justify-content-center align-items-center">
                   
-                    <a class="btn btn-outline-info shadow-sm mx-4" @click="guest">
-                      <i class="fa-solid fa-user-alt"></i>
-                      Click Here To Order, Please 
+                    <a class="btn btn-outline-info btn-lg shadow-sm mx-4" @click="standBy">
+                      <i class="fa-regular fa-user"></i>
+                      StandBy 
+                    </a>
+                    <a class="btn btn-outline-warning btn-lg shadow-sm mx-4" @click="duty">
+                      <i class="fa-solid fa-users"></i>
+                      Duty
                     </a>
                     <!-- <a class="btn btn-outline-info shadow-sm">
                       <i class="fa-solid fa-user-alt"></i>
@@ -30,6 +37,7 @@ function guest(){
               </div>
             </div>
           </div>
+          
         </div>
     </div>
   

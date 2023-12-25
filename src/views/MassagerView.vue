@@ -13,7 +13,7 @@ const updateId=ref()
 async function getMassager() {
   
   const { data } = await supabase
-    .from('massager')
+    .from('employer')
     .select()
     massagers.value=data
   }
@@ -21,9 +21,9 @@ async function getMassager() {
 async function addMassager(){
     if(typeof(mcode.value) == "number"){
         const { data } =await supabase
-        .from('massager')
+        .from('employer')
         .insert([
-            { name: mname.value, mcode:mcode.value ,phone:mphone.value },
+            { name: mname.value, serial:mcode.value ,phone:mphone.value },
         ])
         this.mname=""
         this.mcode=""
@@ -34,14 +34,14 @@ function repairMassager(id){
     const uMassager = massagers.value.find(el => el.id === id);
     updateId.value=id
     mname.value=uMassager.name
-    mcode.value=uMassager.mcode
+    mcode.value=uMassager.serial
     mphone.value=uMassager.phone
     isEdit.value=false
 }
 async function updateMassager() {
     const { data } = await supabase
-    .from('massager')
-    .update({ name: mname.value, mcode: mcode.value, phone: mphone.value})
+    .from('employer')
+    .update({ name: mname.value, serial: mcode.value, phone: mphone.value})
     .eq('id', updateId.value)
     
     isEdit.value=true
@@ -49,7 +49,7 @@ async function updateMassager() {
 async function deleteMassager(id)
 {
     const { error } = await supabase
-    .from('massager')
+    .from('employer')
     .delete()
     .eq('id', id)
     getMassager()
@@ -95,7 +95,7 @@ onMounted(() => {
                             <td class="text-primary"  >
                                <a href="#" @click="repairMassager(massager.id)">{{ massager.name }}</a> 
                             </td>
-                            <td>{{ massager.mcode }}</td>
+                            <td>{{ massager.serial }}</td>
                             <td>{{ massager.phone }}</td>
                             <td>
                                 <button class="btn btn-sm btn-outline-danger" @click="deleteMassager(massager.id)">

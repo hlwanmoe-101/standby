@@ -2,11 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { supabase } from '../lib/supabaseClient'
 
 import HomeView from '../views/HomeView.vue'
-import RoomView from '../views/RoomView.vue'
 import MassagerView from '../views/MassagerView.vue'
 import AdminView from '../views/AdminView.vue'
 import LoginView from '../views/LoginView.vue'
-import GuestView from '../views/GuestView.vue'
+import StandbyView from '../views/StandbyView.vue'
+import DutyView from '../views/DutyView.vue'
+import DutyDetailView from '../views/DutyDetailView.vue'
 import Test from '../views/Test.vue'
 
 
@@ -19,12 +20,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },
-    {
-      path: '/room',
-      name: 'room',
-      component: RoomView,
-      meta:{ requiresAuth:true}
     },
     {
       path: '/test',
@@ -58,10 +53,23 @@ const router = createRouter({
       component: LoginView
     },
     {
-      path:'/guest',
-      name:'guest',
-      component: GuestView
-    }
+      path:'/standby',
+      name:'standby',
+      component: StandbyView
+    },
+    {
+      path:'/duty',
+      name:'duty',
+      component: DutyView,
+      meta:{ requiresAuth:true}
+    },
+    {
+      path:'/dutyDetail/:id',
+      name:'dutyDetail',
+      component: DutyDetailView,
+      meta:{ requiresAuth:true}
+    },
+
   ]
 })
 

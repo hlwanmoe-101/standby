@@ -20,9 +20,6 @@
         <a href="#" class="list-group-item list-group-item-action py-2">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>History</span>
         </a>
-        <a href="#" @click="room()" class="list-group-item list-group-item-action py-2">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>Room Management</span>
-        </a>
         <a href="#" @click="massager()" class="list-group-item list-group-item-action py-2">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>Massager Detail</span>
         </a>
@@ -38,9 +35,7 @@
 import { useRouter } from 'vue-router';
 import { supabase } from '../lib/supabaseClient'
 
-function room(){
-  router.push({ name: 'room' });
-}
+
 function massager(){
   router.push({ name: 'massager' });
 }

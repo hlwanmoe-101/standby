@@ -1,14 +1,10 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import HomeView from './views/HomeView.vue';
 
 </script>
 
 <template>
-    <div>
-      <!-- <HomeView/> -->
-    </div>
-<RouterView/>
+  <RouterView/>
 </template>
 
 <style scoped>

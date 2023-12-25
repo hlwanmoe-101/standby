@@ -67,7 +67,7 @@ const router = createRouter({
       path:'/dutyDetail/:id',
       name:'dutyDetail',
       component: DutyDetailView,
-      meta:{ requiresAuth:true}
+      // meta:{ requiresAuth:true}
     },
 
   ]

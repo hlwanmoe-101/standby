@@ -30,6 +30,7 @@ async function getMassager() {
 const { data } = await supabase
   .from('employer')
   .select('*')
+  .order('serial',{ascending: true})
   allMassagers.value=data
 }
 function dutyDetail(id){

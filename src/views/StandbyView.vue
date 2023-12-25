@@ -23,6 +23,7 @@ async function getStandby(){
   .from('employer')
   .select()
   .eq('isFree',true)
+  .order('serial',{ascending: true})
   freeMassager.value=data
 }
 

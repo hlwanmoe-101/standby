@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-4 vh-100 m-auto">
+            <div class="col-4 d-flex justify-content-center vh-100 m-auto">
                 <div class="card my-5" style="width: 300px;">
                     <div class="p-3">
                         <h2 class="text-primary text-center">Login</h2>

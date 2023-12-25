@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 vh-100 m-auto">
-                <div class="card my-5">
+                <div class="card my-5" style="width: 300px;">
                     <div class="p-3">
                         <h2 class="text-primary text-center">Login</h2>
                         <input v-model="email" class="form-control my-2" type="email" placeholder="Email :" />
